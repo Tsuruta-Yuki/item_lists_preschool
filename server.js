@@ -37,7 +37,7 @@ async function index(req, res) {
 
   const getitems = await getItems(arrayEvent);
 
-  res.status(200).send(getitems);
+  res.status(200).send(getitems.json());
 }
 
 app.get('/items', index);
