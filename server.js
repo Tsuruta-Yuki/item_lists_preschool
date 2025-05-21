@@ -4,15 +4,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-
-const config = require('./knexfile');
+console.log('💀 ~ process.env:', process.env.NODE_ENV);
 
 const db = require('./index');
 
 const cors = require('cors');
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    // origin: 'http://localhost:5173',
+    origin: 'https://item-lists-preschool.onrender.com',
     credentials: true,
   })
 );
