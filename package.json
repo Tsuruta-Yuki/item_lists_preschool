@@ -9,7 +9,7 @@
     "db:migrate-make": "knex migrate:make",
     "db:seed-make": "knex seed:make",
     "db:seed": "knex seed:run",
-    "build": "cd front && npm install && npm run build && rm -rf ../public && cp -r dist ../public"
+    "build": "cd front && npm install && npm run migrate-latest && npm run seed-data && npm run build && rm -rf ../public && cp -r dist ../public"
   },
   "keywords": [],
   "author": "",
