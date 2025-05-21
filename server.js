@@ -8,13 +8,13 @@ app.use(express.static(path.join(__dirname, '/public')));
 const db = require('./index');
 
 const cors = require('cors');
-app.use(
-  cors({
-    // origin: 'http://localhost:5173',
-    origin: 'https://item-lists-preschool.onrender.com',
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     // origin: 'http://localhost:5173',
+//     origin: 'https://item-lists-preschool.onrender.com',
+//     credentials: true,
+//   })
+// );
 
 async function getItems(array) {
   // return await db.select().from('items');
