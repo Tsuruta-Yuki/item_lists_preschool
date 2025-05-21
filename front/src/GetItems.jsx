@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 function Getitems(props) {
   async function setDisplayFlag() {
+    console.log('hello1');
     let response = await fetch(`/items?event=${props.eventlist}`);
 
     response = await response.json();

@@ -4,7 +4,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-console.log('💀 ~ process.env:', process.env.NODE_ENV);
 
 const db = require('./index');
 
@@ -19,6 +18,7 @@ app.use(
 
 async function getItems(array) {
   // return await db.select().from('items');
+  console.log('hello4');
   return await db
     .select('持ち物', 'イベント')
     .table('items')
@@ -27,6 +27,7 @@ async function getItems(array) {
 }
 
 async function index(req, res) {
+  console.log('hello2');
   let eventwords;
   if (req.query.event === '') {
     eventwords = '通常';
@@ -34,10 +35,10 @@ async function index(req, res) {
     eventwords = req.query.event + ',通常';
   }
   const arrayEvent = eventwords.split(',');
-
+  console.log('hello3');
   const getitems = await getItems(arrayEvent);
 
-  res.status(200).send(getitems.json());
+  res.status(200).send(getitems);
 }
 
 app.get('/items', index);
