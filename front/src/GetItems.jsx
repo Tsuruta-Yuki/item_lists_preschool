@@ -7,7 +7,9 @@ function Getitems(props) {
     response = await response.json();
 
     for (const item of response) {
-      props.itemlists.push(item['持ち物']);
+      if (!props.itemlists.includes(item['持ち物'])) {
+        props.itemlists.push(item['持ち物']);
+      }
     }
 
     props.setdispfalg(true);

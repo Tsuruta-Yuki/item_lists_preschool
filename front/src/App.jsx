@@ -3,6 +3,7 @@ import Getitems from './GetItems';
 // import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import './App.css';
+import AddItems from './AddItems';
 
 function App() {
   const [dispfalg, setdispfalg] = useState(false);
@@ -67,7 +68,7 @@ function App() {
             eventlist={eventlist}
           />
           <br />
-          <button>持ち物の追加はこちら</button>
+          <AddItems />
         </div>
       )}
     </>

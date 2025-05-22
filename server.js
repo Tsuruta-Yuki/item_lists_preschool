@@ -32,12 +32,46 @@ async function index(req, res) {
     eventwords = req.query.event + ',通常';
   }
   const arrayEvent = eventwords.split(',');
-  const getitems = await getItems(arrayEvent);
 
-  res.status(200).send(getitems);
+  const getitems = await getItems(arrayEvent);
+  console.log('💀 ~ index ~ getitems:', getitems);
+
+  res.status(200).send(Array.from(new Set(getitems)));
+}
+
+async function addSentItem(req, res) {
+  const evnetName = Object.keys(req.body)[0];
+  const itemName = {
+    持ち物: req.body[evnetName],
+  };
+  console.log('💀 ~ addSentItem ~ itemName:', itemName);
+
+  const duplicateCheck = await db
+    .select('持ち物')
+    .from('items')
+    .where({ 持ち物: itemName['持ち物'] });
+
+  if (duplicateCheck.length === 0) {
+    await db.insert(itemName).into('items');
+  }
+  const itemID = await db
+    .select('id')
+    .from('items')
+    .where({ 持ち物: itemName['持ち物'] });
+
+  const itemInfo = {
+    持ち物id: itemID[0].id,
+    イベント: evnetName,
+  };
+
+  await db.insert(itemInfo).into('informations');
+
+  res.status(201).end();
 }
 
 app.get('/items', index);
+
+app.post('/items', addSentItem);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
