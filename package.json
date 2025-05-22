@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "test": "mocha",
     "dev": "nodemon server.js",
     "db:migrate": "npx knex migrate:latest",
     "db:migrate-make": "knex migrate:make",
@@ -23,6 +24,10 @@
     "pg": "^8.16.0"
   },
   "devDependencies": {
+    "chai": "^5.2.0",
+    "chai-http": "^5.1.2",
+    "cors": "^2.8.5",
+    "mocha": "^11.4.0",
     "nodemon": "^3.1.10"
   }
 }

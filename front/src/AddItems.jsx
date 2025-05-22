@@ -23,7 +23,6 @@ function AddItems() {
       return 'Error:情報が入力されていません';
     } else {
       sendinfo[itemKey] = itemName;
-      console.log('💀 ~ sendItem ~ sendinfo:', sendinfo);
 
       await fetch('/items', {
         method: 'POST',
@@ -32,6 +31,7 @@ function AddItems() {
         },
         body: JSON.stringify(sendinfo),
       });
+      window.location.reload();
     }
   }
 
