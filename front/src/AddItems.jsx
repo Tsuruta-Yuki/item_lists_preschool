@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './AddItems.css';
 
 function AddItems() {
   const [addfalg, setaddfalg] = useState(false);
@@ -45,10 +46,14 @@ function AddItems() {
           </p>
           <input onChange={setEvent} placeholder="イベント名を入力" />
           <input onChange={setItem} placeholder="持ち物を入力" /> <br />
-          <button onClick={sendItem}>入力完了後にクリック</button>
+          <button className="enterbuton" onClick={sendItem}>
+            入力完了後にクリック
+          </button>
         </div>
       ) : (
-        <button onClick={formflag}>持ち物の追加はこちら</button>
+        <button className="enterbuton" onClick={formflag}>
+          持ち物の追加はこちら
+        </button>
       )}
     </>
   );

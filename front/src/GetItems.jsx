@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import './GetItems.css';
 
 function Getitems(props) {
   async function setDisplayFlag() {
@@ -16,7 +17,9 @@ function Getitems(props) {
   }
 
   return (
-    <button onClick={setDisplayFlag}>クリックして今日の持ち物を表示</button>
+    <button className="enterbuton" onClick={setDisplayFlag}>
+      クリックして今日の持ち物を表示
+    </button>
   );
 }
 

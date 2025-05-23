@@ -35,8 +35,13 @@
 
 .card {
   padding: 2em;
+  text-align: center;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+table {
+  margin: 0 auto;
 }

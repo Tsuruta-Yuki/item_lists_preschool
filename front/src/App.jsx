@@ -40,7 +40,7 @@ function App() {
       ) : (
         <div className="card">
           今日のイベントを選択してください! <br />
-          ※イベントがない日の時は何も選択しなくてOKです
+          ※イベントがない日は何も選択しなくてOKです
           <table border="1">
             <tbody>
               <tr>
